@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hyvän Agentti</title>
+<meta charset="UTF-8">
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* kaksi yhtä leveää saraketta */
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.grid > .option {
+  min-width: 0;
+}
+
+.wide {
+  grid-column: span 2;
+}
+.form-container {
+  display: flex;
+  justify-content: center; /* keskittää lomakealueen vaakasuunnassa */
+  padding: 20px;
+}
+
+.form-container h2 {
+  display: flex;
+  justify-content: center; /* keskittää lomakealueen vaakasuunnassa */
+  padding: 20px;
+}
+
+.form-inner {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-wrapper {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+p {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #5a3e1b; /* pehmeä ruskea */
+  font-family: 'Unica One', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 2px #e0c9a6; /* kevyt varjostus */
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#form-section,
+.selected-action-box {
+  flex: 1 1 0;
+  min-width: 0; /* estää ylivuodon ja pakottaa kutistumaan */
+}
+@media (max-width: 768px) {
+  .form-wrapper {
+    flex-direction: column;
+  }
+}
+.form-column {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+#form-section input,
+#form-section button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selected-action-box {
+  background-color: #fff4e6;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #5a3e1b;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#thank-you {
+  display: none;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 28px;         /* suurempi fontti */
+  text-align: center;      /* keskitys */
+  color: #6b4f3b;          /* pehmeä ruskea sävy */
+}
+
+.option {
+  background-color: #f5e9d7;
+  padding: 40px 30px; /* enemmän tilaa sisälle */
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+.option {
+  width: 100%;
+  box-sizing: border-box;
+}
+.logo-header {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 90px; /* tämä lisää tilaa logon jälkeen */
+}
+body {
+  overflow-x: hidden;
+}
+
+
+.emoji {
+  display: block;
+  margin-top: 10px;
+  font-size: 48px; /* suurempi kuin tekstin 20px */
+}
+
+
+        body {
+      background-color: #fdf6e3; /* vaalea beige */
+      font-family: 'Unica One', sans-serif;
+      color: #333333;
+      margin: 40px;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    h1 {
+      color: #6b4f3b; /* pehmeä ruskea otsikolle */
+      text-shadow: 1px 1px 2px #e0c9a6; /* kevyt varjostus */
+      text-align: center;
+    }
+    nav {
+  background-color: #f5e9d7;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  font-family: 'Unica One', sans-serif;
+  color: #6b4f3b;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+
+}
+
+    nav a {
+      color: #6b4f3b;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+img.logo {
+  display: block;
+  margin: 40px auto 20px auto; /* ylä- ja alaväli, keskitys */
+  width: 200px;
+}
+
+  </style>
+</head>
+<body>
+<header class="logo-header">
+  <img src="hyvan_agenttib.jpg" alt="Hyvän Agentti logo" class="logo">
+</header>
+
+        <h1>Tervetuloa tekemään hyvää..</h1>
+  <nav>
+  <a href="Etusivu.html">Etusivu</a>
+  <a href="Teot.html">Hyvän tekeminen</a>
+  <a href="Yhteystiedot.html">Yhteystiedot</a>
+</nav>
+  <h1>Valitse hyvä teko</h1>
+  <p>Täällä voit valita tavan, jolla Hyvän Agentti ilahduttaa läheistäsi. Katso listasta vaihtoehtoja sekä ideoita!</p>
+
+<div class="grid">
+  <div class="option" onclick="selectAction('Kahvilalahjakortti ☕')">
+    Kahvilalahjakortti<br><span class="emoji">☕</span>
+  </div>
+  <div class="option" onclick="selectAction('Hierontalahjakortti 💆')">
+    Hierontalahjakortti<br><span class="emoji">💆</span>
+  </div>
+  <div class="option" onclick="selectAction('Kukkakimppu 💐')">
+    Kukkakimppu<br><span class="emoji">💐</span>
+  </div>
+  <div class="option" onclick="selectAction('Leffalippu 🎬')">
+    Leffalippu<br><span class="emoji">🎬</span>
+  </div>
+  <div class="option" onclick="selectAction('Ravintolalahjakortti 🍽️')">
+    Ravintolalahjakortti<br><span class="emoji">🍽️</span>
+  </div>
+  <div class="option" onclick="selectAction('Ostoslahjakortti 🛍️')">
+    Ostoslahjakortti<br><span class="emoji">🛍️</span>
+  </div>
+  <div class="option" onclick="selectAction('Taide-elämys 🎨')">
+    Taide-elämys<br><span class="emoji">🎨</span>
+  </div>
+  <div class="option" onclick="selectAction('Konserttilippu 🎵')">
+    Konserttilippu<br><span class="emoji">🎵</span>
+  </div>
+  <div class="option" onclick="selectAction('Museolippu 🎟️')">
+    Museolippu<br><span class="emoji">🎟️</span>
+  </div>
+  <div class="option" onclick="selectAction('Pehmolelu 🧸')">
+    Pehmolelu<br><span class="emoji">🧸</span>
+  </div>
+  <div class="option" onclick="selectAction('Viherkasvi 🌿')">
+    Viherkasvi<br><span class="emoji">🌿</span>
+  </div>
+  <div class="option" onclick="selectAction('Aamupala 🍳')">
+    Aamupala<br><span class="emoji">🍳</span>
+  </div>
+  <div class="option" onclick="selectAction('Donitsi 🍩')">
+    Donitsi<br><span class="emoji">🍩</span>
+  </div>
+  <div class="option" onclick="selectAction('Jäätelöannos 🍦')">
+    Jäätelöannos<br><span class="emoji">🍦</span>
+  </div>
+  <div class="option" onclick="selectAction('Pizza 🍕')">
+    Pizza<br><span class="emoji">🍕</span>
+  </div>
+  <div class="option" onclick="selectAction('Leivos 🍰')">
+    Leivos<br><span class="emoji">🍰</span>
+  </div>
+  <div class="option" onclick="selectAction('Suklaalevy 🍫')">
+    Suklaalevy<br><span class="emoji">🍫</span>
+  </div>
+  <div class="option" onclick="selectAction('Kirja 📚')">
+    Kirja<br><span class="emoji">📚</span>
+  </div>
+  <div class="option" onclick="selectAction('Kortti & viesti 💌')">
+    Kortti & viesti<br><span class="emoji">💌</span>
+  </div>
+  <div class="option" onclick="selectAction('Pieni yllätyspaketti 🎁')">
+    Pieni yllätyspaketti<br><span class="emoji">🎁</span>
+  </div>
+  <div class="option wide" onclick="selectAction('Räätälöidään yksilöllinen hyvä teko? ✨✨✨')">Räätälöidään yksilöllinen hyvä teko?<br>
+    <span class="emoji">✨✨✨</span>
+  </div>
+</div>
+<div class="form-container">
+  <div class="form-inner">
+    <div class="form-wrapper">
+      <div class="form-column" id="form-section">
+
+      <h2>Lähetä toiveesi Hyvän Agentille</h2>
+      <form onsubmit="event.preventDefault(); showThankYou();">
+        <label for="name">Nimesi:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Sähköpostisi:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Puhelinnumerosi:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <button type="submit">Lähetä</button>
+      </form>
+      <p id="thank-you" style="display:none; font-weight:bold; margin-top:20px;">
+        Kiitos, Hyvän Agentti ottaa Sinuun myöhemmin yhteyttä &lt;3
+      </p>
+    </div>
+    <!-- Valittu teko oikealle -->
+    <div class="form-column selected-action-box" id="selected-action-box">
+      <p id="selected-action-text">Valitse ensin hyvä teko yllä olevasta listasta.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function selectAction(actionText) {
+    const message = `Hyvän Agentti tekee läheisellesi hyvän teon, joka on ${actionText} Lisää vielä nimesi, sähköpostisi sekä puhelinnumerosi Hyvän Agentin yhteydenottoa varten.`;
+    document.getElementById('selected-action-text').innerText = message;
+  }
+function selectAction(actionText) {
+  // Poistetaan kysymysmerkki
+  const cleanedText = actionText.replace('?', '').trim();
+
+  // Erotetaan emoji, jos sellainen on lopussa
+  const emojiMatch = cleanedText.match(/([\p{Emoji_Presentation}\p{Emoji}\uFE0F\u200D]+)$/u);
+  const emoji = emojiMatch ? emojiMatch[0] : '';
+  const textOnly = emoji ? cleanedText.replace(emoji, '').trim() : cleanedText;
+
+  // Rakennetaan viesti
+  const message = `Hyvän Agentti tekee läheisellesi hyvän teon, joka on<br><br><strong>${textOnly}</strong><br>${emoji}<br><br>Lisää vielä nimesi, sähköpostisi sekä puhelinnumerosi Hyvän Agentin yhteydenottoa varten.`;
+
+  // Asetetaan HTML:llä, jotta <br>-tagit toimivat
+  document.getElementById('selected-action-text').innerHTML = message;
+}
+
+
+  function showThankYou() {
+    document.getElementById('thank-you').style.display = 'block';
+  }
+</script>
+</body>
+</html>
