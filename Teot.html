@@ -6,7 +6,7 @@
 <style>
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* kaksi yhtä leveää saraketta */
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin: 40px 0;
 }
@@ -20,13 +20,13 @@
 }
 .form-container {
   display: flex;
-  justify-content: center; /* keskittää lomakealueen vaakasuunnassa */
+  justify-content: center;
   padding: 20px;
 }
 
 .form-container h2 {
   display: flex;
-  justify-content: center; /* keskittää lomakealueen vaakasuunnassa */
+  justify-content: center;
   padding: 20px;
 }
 
@@ -45,11 +45,11 @@
 p {
   font-size: 24px;
   line-height: 1.6;
-  color: #5a3e1b; /* pehmeä ruskea */
+  color: #5a3e1b;
   font-family: 'Unica One', sans-serif;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 1px 1px 2px #e0c9a6; /* kevyt varjostus */
+  text-shadow: 1px 1px 2px #e0c9a6;
 }
 
 .form-heading {
@@ -60,7 +60,7 @@ p {
 #form-section,
 .selected-action-box {
   flex: 1 1 0;
-  min-width: 0; /* estää ylivuodon ja pakottaa kutistumaan */
+  min-width: 0;
 }
 @media (max-width: 768px) {
   .form-wrapper {
@@ -97,14 +97,14 @@ p {
   display: none;
   font-weight: bold;
   margin-top: 20px;
-  font-size: 28px;         /* suurempi fontti */
-  text-align: center;      /* keskitys */
-  color: #6b4f3b;          /* pehmeä ruskea sävy */
+  font-size: 28px;
+  text-align: center;
+  color: #6b4f3b;
 }
 
 .option {
   background-color: #f5e9d7;
-  padding: 40px 30px; /* enemmän tilaa sisälle */
+  padding: 40px 30px;
   border-radius: 10px;
   text-align: center;
   font-weight: bold;
@@ -120,7 +120,7 @@ p {
   justify-content: center;
   align-items: center;
   margin-top: 80px;
-  margin-bottom: 90px; /* tämä lisää tilaa logon jälkeen */
+  margin-bottom: 90px;
 }
 body {
   overflow-x: hidden;
@@ -130,12 +130,12 @@ body {
 .emoji {
   display: block;
   margin-top: 10px;
-  font-size: 48px; /* suurempi kuin tekstin 20px */
+  font-size: 48px;
 }
 
 
         body {
-      background-color: #fdf6e3; /* vaalea beige */
+      background-color: #fdf6e3;
       font-family: 'Unica One', sans-serif;
       color: #333333;
       margin: 40px;
@@ -144,8 +144,8 @@ body {
     }
 
     h1 {
-      color: #6b4f3b; /* pehmeä ruskea otsikolle */
-      text-shadow: 1px 1px 2px #e0c9a6; /* kevyt varjostus */
+      color: #6b4f3b;
+      text-shadow: 1px 1px 2px #e0c9a6;
       text-align: center;
     }
     nav {
@@ -172,7 +172,7 @@ nav a {
 
 img.logo {
   display: block;
-  margin: 40px auto 20px auto; /* ylä- ja alaväli, keskitys */
+  margin: 40px auto 20px auto;
   width: 200px;
 }
 
@@ -279,7 +279,6 @@ img.logo {
         Kiitos, Hyvän Agentti ottaa Sinuun myöhemmin yhteyttä &lt;3
       </p>
     </div>
-    <!-- Valittu teko oikealle -->
     <div class="form-column selected-action-box" id="selected-action-box">
       <p id="selected-action-text">Valitse ensin hyvä teko yllä olevasta listasta.</p>
     </div>
@@ -292,22 +291,13 @@ img.logo {
     document.getElementById('selected-action-text').innerText = message;
   }
 function selectAction(actionText) {
-  // Poistetaan kysymysmerkki
   const cleanedText = actionText.replace('?', '').trim();
-
-  // Erotetaan emoji, jos sellainen on lopussa
   const emojiMatch = cleanedText.match(/([\p{Emoji_Presentation}\p{Emoji}\uFE0F\u200D]+)$/u);
   const emoji = emojiMatch ? emojiMatch[0] : '';
   const textOnly = emoji ? cleanedText.replace(emoji, '').trim() : cleanedText;
-
-  // Rakennetaan viesti
   const message = `Hyvän Agentti tekee läheisellesi hyvän teon, joka on<br><br><strong>${textOnly}</strong><br>${emoji}<br><br>Lisää vielä nimesi, sähköpostisi sekä puhelinnumerosi Hyvän Agentin yhteydenottoa varten.`;
-
-  // Asetetaan HTML:llä, jotta <br>-tagit toimivat
   document.getElementById('selected-action-text').innerHTML = message;
 }
-
-
   function showThankYou() {
     document.getElementById('thank-you').style.display = 'block';
   }
